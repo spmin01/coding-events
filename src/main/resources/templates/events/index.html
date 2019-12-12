@@ -9,10 +9,17 @@
 
 <p th:unless="${events} and ${events.size()}">No Events!</p>
 
-<ul>
-    <th:block th:each="event : ${events}">
-        <li th:text="${event}"></li>
+<table>
+    <tr>
+        <th>Event Name</th>
+        <th>Description</th>
+    </tr>
+    <th:block th:each="event : ${events.keySet().toArray()}">
+        <tr>
+            <td th:text="${event}"></td>
+            <td th:text="${events.get(event)}"></td>
+        </tr>
     </th:block>
-</ul>
+</table>
 </body>
 </html>
